@@ -1,0 +1,77 @@
+\documentclass[digital, oneside, table, nolot, nolof]{fithesis4}
+%\documentclass[printed, twoside, table, nolot, nolof]{fithesis4}
+
+%% The following section sets up the locales used in the thesis.
+\usepackage[resetfonts]{cmap}
+\usepackage[T1]{fontenc}
+\usepackage[main=czech, english]{babel}
+
+%% The following section sets up the metadata of the thesis.
+\thesissetup{
+    date          = \the\year/\the\month/\the\day,
+    university    = mu,
+    faculty       = fi,
+    type          = mgr,
+    % department  = Department of Machine Learning and Data Processing,
+    author        = Jan Horáček,
+    gender        = m,
+    advisor       = {RNDr. Zdeněk Matěj, Ph.D.},
+    title         = {Návrh a implementace nového protokolu sběrnice MTBbus},
+    TeXtitle      = {Návrh a implementace nového protokolu sběrnice MTBbus},
+    keywords      = {sběrnice, plc, mtb, mtbbus, rs485, embedded, stm32, qt, usb, cdc, protokol, avr, arm, dcc},
+    TeXkeywords   = {sběrnice, plc, mtb, mtbbus, rs485, embedded, stm32, qt, usb, cdc, protokol, avr, arm, dcc},
+    abstract      = {\input{abstrakt.tex}},
+    thanks        = {\input{dik.tex}},
+    bib           = bibliography.bib,
+    %titleEn       = {Design and implementation of a new MTBbus protocol},
+    %TeXtitleEn    = {Design and implementation of a new MTBbus protocol},
+    %keywordsEn    = {bus, mtb, rs485, embedded, stm32, C++, qt, protocol, avr, arm, kicad},
+    %TeXkeywordsEn = {bus, mtb, rs485, embedded, stm32, C++, qt, protocol, avr, arm, kicad},
+    %assignment    = {data/zadani_ofic.pdf},
+    facultyLogo = fithesis-fi,
+}
+\usepackage{makeidx}      %% The `makeidx` package contains
+\makeindex                %% helper commands for index typesetting.
+\usepackage[acronym]{glossaries}          %% The `glossaries` package
+\renewcommand*\glspostdescription{\hfill} %% contains helper commands
+\loadglsentries{example-terms-abbrs.tex}  %% for typesetting glossaries
+%\makenoidxglossaries                      %% and lists of abbreviations.
+\makeglossaries
+%% These additional packages are used within the document:
+\usepackage{paralist} %% Compact list environments
+\usepackage{amsmath}  %% Mathematics
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{url}      %% Hyperlinks
+\usepackage{listings} %% Source code highlighting
+\lstset{
+  basicstyle      = \ttfamily,
+  identifierstyle = \color{black},
+  keywordstyle    = \color{blue},
+  keywordstyle    = {[2]\color{cyan}},
+  keywordstyle    = {[3]\color{olive}},
+  stringstyle     = \color{teal},
+  commentstyle    = \itshape\color{magenta},
+  breaklines      = true,
+}
+\usepackage{floatrow} %% Putting captions above tables
+\floatsetup[table]{capposition=top}
+\usepackage[babel]{csquotes} %% Context-sensitive quotation marks
+\begin{document}
+
+% Highlight overfulls
+\setlength{\overfullrule}{5pt} % TODO: remove
+
+\chapter{Úvod} \label{chap:uvod}
+\input{uvod}
+
+\chapter{Závěr} \label{chap:zaver}
+\input{zaver}
+
+\printbibliography[heading=bibintoc]
+
+\appendix
+\chapter{Přílohy} \label{chap:appendix}
+\input{appendix}
+
+\end{document}
