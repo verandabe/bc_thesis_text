@@ -1,51 +1,45 @@
-Problém, kterým se zabývá tato práce, nebyl zatím příliš prozkoumán. V~blasti zpracování přirozeného jazyka (NLP) existuje řada otevřených problémů a přeformulování textui obecně je jedním z~nich. Kromě toho se v~NLP potýkáme se složitou výzvou: mnohá řešení libovolného problémů jsou jazykově specifická. Většina výzkumů, které můžeme najít na jakékoli téma, se přirozeně provádí v~angličtině. Zpracování angličtiny má několik výhod: nejenže ji používají lidé po celém světě, což nám poskytuje obrovské množství jazykových dat, ale navíc je z~lingvistického hlediska díky své jednoduché morfologii snadno zpracovatelná. Naproti tomu čeština je mnohem složitější a vzhledem k~počtu mluvčích se jejím zpracování zabývá významně méně lidí. Jelikož jsem se v~této práci rozhodla pracovat s~českými texty, stojím před touto výzvou i já.
+\section{State of art}
 
-Zmíněné okolnosti nás přivádí k~faktu, že pro češtinu neexistuje žádné řešení tohoto problému, které by mi bylo známo. Najdeme však několik nástrojů, které řeší tuto úlohu alespoň z~části.
+So far, the task of the point of view conversion is largely unexplored. There are a lot of open problems in the area of natural language processing (NLP) and text rephrasing in general is one of them. Besides, we have to face a specific challenge in NLP: several solutions to any NLP task are language-specific. Naturally, most of the research we can find on any topic is performed on English. Processing of the English language has several advantages: not only it is widely used and there is a lot of textual data written in English, but from a linguistic perspective it is easy to process due to its simple morphology. In contrast, Czech is much more complex and, due to the number of speakers, there are not many researchers dealing with the natural language processing of the Czech language. Since I have chosen to work with Czech texts in this thesis, I have to face this specific challenge as well.
 
-Po zobecnění problému na libovolný přirozený jazyk jsem přesto našla jen pár prací na podobné téma, jak se dalo očekávat, všechna pro angličtinu.
+This leads us to the fact that there is no existing solution to this task for Czech. However, there are tools that solve at least some parts of the problem.
 
-V~tét kapitole nejprve představím existující řešení pro angličtinu a poté se zaměřím na situaci v~oblasti zpracování češtiny.
+If we generalize the problem to any language, we find only few papers on this topic, as expected, all for English.
 
-\section{Existující řešení pro angličtinu}
+In this chapter, at first I introduce the existing solutions for the English language and then I take a look at the situation in the Czech processing.
 
-Jak bylo zmíněno v~předchozí kapitole, motivací k~této úloze je vytvořit nástroj pro spisovatele. Nicméně dosavadní práce na toto téma se většinou zaměřují na jiný cíl: převést osobu v~odpovědích poskytovaných virtuálními asistentkami (VA), jako jsou Siri, Alexa nebo Google Assistant. Vzhledem k~odlišnosti cílového využití se tato řešení zabývají některými problémy, které jsou pro tuto práci irelevantní, a naopak opomíjejí několik dílčích úloh souvisejících s~procesem tvůrčího psaní.
+\subsection{Existing solutions for English}
 
-Systém, který navrhli Lee et al. \cite{lee2020converting} se zaměřuje na mluvené zprávy v~konverzacích, kde asistuje VA. Pokud je mi známo, jedná se o první pokus konverze úhlu pohledu. V~rámci tohoto výzkumu bylo vyvinuto několik modelů, které můžeme rozdělit podle dvou hlavních přístupů:
+As mentioned in the previous chapter, our motivation for this task is to create a tool for writers. However, previous work on this topic has mostly focused on a different goal: to convert the person in replies provided by virtual assistants (VA), such as Siri, Alexa or Google Assistant.  Due to the difference in the target application, these solutions address some problems that are irrelevant to our case, and neglect several subtasks related to the creative writing process.
 
-\begin{itemize}
-	\item[Rule-based přístup] Jde o model, který využívá soubor vytvořených pravidel. Tato pravidla popisují, jak by měl být převod gramaticky proveden.
-	\item[Machine learning přístup] Několik dalších modelů je založeno na hlubokém strojovém učení. Tyto modely byly natrénováný na velkém souboru dat pracovníků Amazon Mechanical Turk.
-\end{itemize}
-Podle výstupů evaluace dosahují lepších výsledků modely založené na strojovém učení.
+The system designed by Lee et al. \cite{lee2020converting} focused on spoken messages in VA-assisted conversations. To the best to our knowledge, this is the first attempt at point-of-view conversion. The authors have developed several models that can be classified by two main approaches: rule-based and machine learning. The rule-based model works with a set of rules which describe how the grammatical conversion should be performed. The model relies on classification model that provides Named Entity Recognition, which is already implemented in the VA. In addition, the model is using a Part Of Speech (POS) tagger and a constituency parser. Furthermore, several deep learning based models have been developed. These models were trained on data collection provided by Amazon Mechanical Turk workers. According to the evaluation results, the deep learning based models have better performance.
 
-Nedávno publikovali další snahu o konverzi Granero-Moya a Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Jejich výzkum je rovněž zaměřen na technologie virtuálních asistentek. Na rozdíl od mé práce a práce Lee et al. se zaměřují pouze na převod v jednom směru: z~třetí osoby do první osoby. V~publikaci také uvádí oba dva výše zmíněné přístupy. I v~tomto případě vykazují modely založené na hlubokém učení lepší výsledky než rule-based model, který zde posloužil jako baseline.
+Recently, another effort for conversion has been published by Granero-Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike our work and the work of Lee at al. they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, that served as a baseline here, as well.
 
+\subsection{Tools for Czech}
 
-\section{Nástroje pro češtinu}
+In the introduction to this chapter I explained that there is currently no solution to this problem for Czech. Nevertheless, I will briefly introduce a few tools that address more general problems.
 
-V~úvodu této kapitoly bylo objasněno, že pro češtinu v~současné době žádné existující řešení není. Představím tedy stručně několik nástrojů řešících obecnější problémy.
+\subsubsection{Morphological analyzers}
 
-\subsection{Morfologické analyzátory}
+Morphological analysis is an essential part of natural language processing. In the context of POV conversion, we cannot do without morphological analysis. For instance, we need to know the person of a word being processed, and a morphological analyzer can provide us with tags describing the grammatical categories of the word.
 
-Morfologická analýza je nezbytnou součástí zpracování přirozeného jazyka. Je podstatná i pro řešení převodu textu mezi způsoby vyprávění. Například, morfologický analyzátor poskytuje značky, jež popisují gramatické kategorie slova. Tyto značky jsou potřeba k~rozpoznání osoby daného slova.
-
-V~české NLP komunitě existuje několik nástrojů poskytujících morfologickou analýzu..
+There are several tools in the Czech community providing morphological analysis.
 
 \paragraph{Ajka}
 
-je jedním z~prvních morfologických analyzátorů pro češtinu. V~současné době se Ajka již nevyvíjí a byla nahrazena novým morfologickým analyzátorem Majka \cite{Sedlacekthesis}
+is one of the first morphological analyzers for Czech. Currently Ajka is no longer in development and has been replaced by the new morphological analyzer Majka. \cite{Sedlacekthesis}
 
 \paragraph{Majka}
 
-je rychlý morfologický analyzátor, který vznikl na Masarykově univerzitě. Implementace navazuje na předchozí systém Ajka, je však rychlejší a flexibilnější. Majka je založena na konečných automatech a pracuje s~morfologickou databází. V~tuto chvíli autor poskytuje databáze nejen pro češtinu, ale i pro další jazyky. Nástroj je schopen přiřadit analyzovanému slovnímu tvaru lemma (základní tvar slova) a značky, vygenerovat všechny slovní tvary daného lemmatu a na základě daného lemmatu a značek vrátit slovní tvar.\cite{majka}
+is a fast morphological analyzer that was developed at Masaryk University. The implementation builds on the previous system Ajka, but it is faster and more flexible. Majka is based on finite automata and it works with a morphological database. At the moment, the author provides databases not only for Czech but also for other languages. The tool is able to assign lemmas and tags to the analyzed word form, generate all word forms of a given lemma and generate a word form based on the given lemma and tags. \cite{majka}
 
-\paragraph{MorphoDiTa} (Morphological Dictionary and Tagger) je nástroj vytvořený na Univerzitě Karlově, který provádí morfologickou analýzu, morfologické generování a značkování. \cite{strakova14}
+\paragraph{MorphoDiTa} (Morphological Dictionary and Tagger) is a tool developed at Charles University that performs morphological analysis, morphological generation and tagging. \cite{strakova14}
 
-\subsection{Syntaktické analyzátory}
+\subsubsection{Syntactic analyzers}
 
-Kromě morfologie existuje další jazyková rovina, kterou je nutné se při řešení převodu textu mezi osobami zabývat, a tou je syntax. Aby bylo možné větu přeformulovat, je potřeba provést syntaktickou analýzu, navazující na analýzu morfologickou. Stručně představím dva existující syntaktické analyzátory pro češtinu, které byly vyvinuty v~Centru zpracování přirozeného jazyka na Masarykově univerzitě.
+In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion, and that is syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceded by morphological analysis. Let's take a look at the existing syntactic analyzers for Czech.
 
-\paragraph{SYNT} je syntaktický analyzátor založený na české meta-gramatice a byl navržen pro morfologicky bohaté jazyky..
+\paragraph{SYNT} is a syntactic analyzer developed at the NLP Centre at Masaryk University. The tool is based on Czech meta-grammar and it was designed for morphologically-rich languages.
 
-\paragraph{SET} (Syntactic Engineering Tool), implementuje nový přístup k~syntaktické analýze češtiny, a tím je rozpoznávání vzorů. \cite{set}
-
+\paragraph{SET} (Syntactic Engineering Tool), also developed at the NLP Centre, is implementing a new approach to the syntactic analysis of Czech. This new approach is based on pattern recognition. \cite{set}
