@@ -1,6 +1,4 @@
-\section{State of art}
-
-So far, the task of the point of view conversion is largely unexplored. There are a lot of open problems in the area of natural language processing (NLP) and text rephrasing in general is one of them. Besides, we have to face a specific challenge in NLP: several solutions to any NLP task are language-specific. Naturally, most of the research we can find on any topic is performed on English. Processing of the English language has several advantages: not only it is widely used and there is a lot of textual data written in English, but from a linguistic perspective it is easy to process due to its simple morphology. In contrast, Czech is much more complex and, due to the number of speakers, there are not many researchers dealing with the natural language processing of the Czech language. Since I have chosen to work with Czech texts in this thesis, I have to face this specific challenge as well.
+So far, the task of the narrative mode conversion is largely unexplored. There are a lot of open problems in the area of natural language processing (NLP) and text rephrasing in general is one of them. Besides, we have to face a specific challenge in NLP: several solutions to any NLP task are language-specific. Naturally, most of the research we can find on any topic is performed on English. Processing of the English language has several advantages: not only it is widely used and there is a lot of textual data written in English, but from a linguistic perspective it is easy to process due to its simple morphology. In contrast, Czech is much more complex and, due to the number of speakers, there are not many researchers dealing with the natural language processing of the Czech language. Since I have chosen to work with Czech texts in this thesis, I have to face this specific challenge as well.
 
 This leads us to the fact that there is no existing solution to this task for Czech. However, there are tools that solve at least some parts of the problem.
 
@@ -8,21 +6,21 @@ If we generalize the problem to any language, we find only few papers on this to
 
 In this chapter, at first I introduce the existing solutions for the English language and then I take a look at the situation in the Czech processing.
 
-\subsection{Existing solutions for English}
+\section{Existing solutions for English}
 
-As mentioned in the previous chapter, our motivation for this task is to create a tool for writers. However, previous work on this topic has mostly focused on a different goal: to convert the person in replies provided by virtual assistants (VA), such as Siri, Alexa or Google Assistant.  Due to the difference in the target application, these solutions address some problems that are irrelevant to our case, and neglect several subtasks related to the creative writing process.
+As mentioned in the previous chapter, my motivation for this task is to create a tool for writers. However, previous work on this topic has mostly focused on a different goal: to convert the person in replies provided by virtual assistants (VA), such as Siri, Alexa or Google Assistant.  Due to the difference in the target application, these solutions address some problems that are irrelevant to our case, and neglect several subtasks related to the creative writing process.
 
 The system designed by Lee et al. \cite{lee2020converting} focused on spoken messages in VA-assisted conversations. To the best to our knowledge, this is the first attempt at point-of-view conversion. The authors have developed several models that can be classified by two main approaches: rule-based and machine learning. The rule-based model works with a set of rules which describe how the grammatical conversion should be performed. The model relies on classification model that provides Named Entity Recognition, which is already implemented in the VA. In addition, the model is using a Part Of Speech (POS) tagger and a constituency parser. Furthermore, several deep learning based models have been developed. These models were trained on data collection provided by Amazon Mechanical Turk workers. According to the evaluation results, the deep learning based models have better performance.
 
 Recently, another effort for conversion has been published by Granero-Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike our work and the work of Lee at al. they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, that served as a baseline here, as well.
 
-\subsection{Tools for Czech}
+\section{Tools for Czech}
 
 In the introduction to this chapter I explained that there is currently no solution to this problem for Czech. Nevertheless, I will briefly introduce a few tools that address more general problems.
 
-\subsubsection{Morphological analyzers}
+\subsection{Morphological analyzers}
 
-Morphological analysis is an essential part of natural language processing. In the context of POV conversion, we cannot do without morphological analysis. For instance, we need to know the person of a word being processed, and a morphological analyzer can provide us with tags describing the grammatical categories of the word.
+Morphological analysis is an essential part of natural language processing. In the context of narrative mode conversion, we cannot do without morphological analysis. For instance, we need to know the person of a word being processed, and a morphological analyzer can provide us with tags describing the grammatical categories of the word.
 
 There are several tools in the Czech community providing morphological analysis.
 
@@ -36,7 +34,7 @@ is a fast morphological analyzer that was developed at Masaryk University. The i
 
 \paragraph{MorphoDiTa} (Morphological Dictionary and Tagger) is a tool developed at Charles University that performs morphological analysis, morphological generation and tagging. \cite{strakova14}
 
-\subsubsection{Syntactic analyzers}
+\subsection{Syntactic analyzers}
 
 In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion, and that is syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceded by morphological analysis. Let's take a look at the existing syntactic analyzers for Czech.
 
