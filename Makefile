@@ -12,7 +12,7 @@ DATA=$(wildcard data/*)
 all: $(THESIS).pdf
 
 $(THESIS).pdf: $(THESIS).tex $(BIB) $(PARTS) $(GRAPHS) $(DATA)
-	$(PDFLATEX) -interaction=batchmode $< # The initial typesetting.
+	$(PDFLATEX) $< # The initial typesetting.
 	biber $(basename $<).bcf
 	makeglossaries $(THESIS)
 	$(PDFLATEX) -interaction=batchmode $< # Update the index after the bibliography insertion.

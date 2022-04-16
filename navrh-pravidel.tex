@@ -1,1 +1,38 @@
-Navrhněte pravidla pro oboustranný převod mezi oběma formami ve spisovné češtině. 
+Navrhněte pravidla pro oboustranný převod mezi oběma formami ve spisovné češtině.
+
+
+\section{First-person to Third-person Rules}
+In First-person $\rightarrow$ Third-person conversion direction, I have designed four rules. These four rules cover:
+	\begin{itemize}
+		\item Personal pronouns replacement
+		\item Possesive pronouns replacement
+		\item Replacement of contidional verb forms, present verb forms, and conjunctions
+		\item Auxiliary verbs replacement or deletion
+	\end{itemize}
+
+In this section, I describe each of these rules.
+
+\subsection{Personal pronouns}
+
+This rule covers the conversion of a personal pronoun \emph{já (I)} and its forms. The pronoun can be replaced by:
+	\begin{itemize}
+		\item another pronoun -- \emph{ona (she)}/\emph{on (he)}
+		\item noun -- usually a proper noun, given as the protagonist's name
+	\end{itemize}
+In both cases, the replacement must be in a corresponding form to keep a sentence grammaticly correct.
+
+\subsubsection{Description of the rule}
+
+\begin{listings}
+	Precondition: word.lemma is "já"
+	Step 1: decide, if the pronoun would be replaced by proper noun or pronoun
+	IF Proper Noun:
+		new word = protagonist's name in corresponding case
+	ELSE IF the pronoun comes after preposition:
+		new\_word = corresponding form of a pronoun "on" starting with "n"
+	ELSE:
+		new\_world = corresponding form of a pronoun "on" not starting with "n"
+\end{listings}
+
+\subsection{Possessive pronouns}
+
