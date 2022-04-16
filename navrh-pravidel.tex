@@ -2,7 +2,7 @@ Navrhněte pravidla pro oboustranný převod mezi oběma formami ve spisovné č
 
 
 \section{First-person to Third-person Rules}
-In First-person $\rightarrow$ Third-person conversion direction, I have designed four rules. These four rules cover:
+In First-person $\rightarrow$ Third-person conversion direction, I have proposed four rules. These four rules cover:
 	\begin{itemize}
 		\item Personal pronouns replacement
 		\item Possesive pronouns replacement
@@ -19,20 +19,27 @@ This rule covers the conversion of a personal pronoun \emph{já (I)} and its for
 		\item another pronoun -- \emph{ona (she)}/\emph{on (he)}
 		\item noun -- usually a proper noun, given as the protagonist's name
 	\end{itemize}
-In both cases, the replacement must be in a corresponding form to keep a sentence grammaticly correct.
 
-\subsubsection{Description of the rule}
+In both cases, the replacement must be in a corresponding form to keep a sentence grammatically correct.
 
-\begin{listings}
-	Precondition: word.lemma is "já"
-	Step 1: decide, if the pronoun would be replaced by proper noun or pronoun
-	IF Proper Noun:
-		new word = protagonist's name in corresponding case
-	ELSE IF the pronoun comes after preposition:
-		new\_word = corresponding form of a pronoun "on" starting with "n"
-	ELSE:
-		new\_world = corresponding form of a pronoun "on" not starting with "n"
-\end{listings}
+The rule is illustrated in a diagram \ref{fig:icher-perspron-rule}.
+
+\begin{figure}[ht!]
+\includegraphics[width=\textwidth]{data/Icher-Perspron-Rule.pdf}
+\caption{Personal pronouns replacement rule}
+\label{fig:icher-perspron-rule}
+\end{figure}
 
 \subsection{Possessive pronouns}
+
+In addition to personal pronouns, possessive pronouns must also be converted. The process is similar to the previous one. The goal is to convert a possessive pronoun \emph{můj (my)} and its forms to possessive pronouns \emph{její (her)} / \emph{jeho (his)}, or the possessive form of a proper noun. Considering the limits given by the morphological analyzer, I have decided not to include the second type of replacement. Therefore all the possessive pronouns would be replaced by possessive pronouns.
+
+The rule is illustrated in a diagram %%\ref{fig:icher-posspron-rule}.
+
+%%\begin{figure}[ht!]
+%%\includegraphics[width=\textwidth]{data/Icher-Posspron-Rule.pdf}
+%%\caption{Possessive pronouns replacement rule}
+%%\label{fig:icher-posspron-rule}
+%%\end{figure}
+
 
