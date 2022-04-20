@@ -1,1 +1,34 @@
- využitím syntaktického analyzátoru SET vytvořte program, který bude převádět texty mezi oběma formami. Zohledněte gramaticko-syntaktické jevy spojené s každou z vyprávěcích forem (osoba slovesných tvarů, osobní a přivlastňovací zájmena, spojky kdyby a aby, přímá řeč, rezoluce anafor).
+%% s využitím syntaktického analyzátoru SET vytvořte program, který bude převádět texty mezi oběma formami. Zohledněte gramaticko-syntaktické jevy spojené s každou z vyprávěcích forem (osoba slovesných tvarů, osobní a přivlastňovací zájmena, spojky kdyby a aby, přímá řeč, rezoluce anafor).
+In this chapter, I describe the implementation of the tool \emph{RephrasErIch} which converts a given text between first-person and third-person narratives, and I present other tools that I used in the implementation.
+
+\section{Used tools}
+
+\subsection{SET}
+
+As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reason why I chose this analyzer is my previous experience with using this tool and its ability to produce dependency trees.
+
+SET is implemented in the Python programming language. Although RephrasErIch is also written in this programming language, it would be challenging to integrate the tools since SET is implemented in the old Python version, Python 2. For this reason, the tools communicate with each other through the command line. The communication is handled by a class \texttt{Syn}.
+
+\subsection{Majka}
+
+\emph{Majka} \cite{majka} provides a morphological analysis. The tool is able to:
+\begin{itemize}
+	\item assign lemmas and tags to words
+	\item generate all correct word forms and tags for a given lemma
+	\item generate a word form according to a given lemma and tag
+\end{itemize}
+
+RephrasErIch uses Majka directly, mainly for the third use case. Majka is written in C language. Therefore my tool contains a class \texttt{morph} which calls Majka's binary code from a command line and processes the output.
+
+\subsection{Desamb}
+
+\emph{Desamb} is a morphological disambiguator using Majka as a morphological tagger. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word's context, essential for correct tagging.
+
+In my implementation, I use Desamb to generate an input for syntactic analysis.
+
+\subsection{Aara}
+
+The last task that I use external tools for is \emph{anaphora resolution}. Anaphora resolution is a problem of resolving what a pronoun refers to earlier or later in the discourse. For instance, the resolution of a sentence: \emph{Jacob saw his dad in the school} would tell us- that \emph{his} refers to \emph{Jacob}.
+%% to do: cite
+
+There are few tools for Czech anaphora resolution, and the existing ones do not perform very well. Still, anaphora resolution is required for the third-person to the first-person narrative. Thus I decided to use a tool \emph{Aara}. Usage of Aara is provided by a class \texttt{Anaph}, which is run from a command line for the same reasons as SET.
