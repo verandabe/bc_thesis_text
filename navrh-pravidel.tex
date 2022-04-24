@@ -6,7 +6,7 @@ In First-person $\rightarrow$ Third-person conversion direction, I have proposed
 	\begin{itemize}
 		\item Personal pronouns replacement
 		\item Possesive pronouns replacement
-		\item Replacement of contidional verb forms, present verb forms, and conjunctions
+		\item Replacement of contidional, present and future verb forms, conjunctions
 		\item Auxiliary verbs replacement or deletion
 	\end{itemize}
 
@@ -34,12 +34,46 @@ The rule is illustrated in a diagram \ref{fig:icher-perspron-rule}.
 
 In addition to personal pronouns, possessive pronouns must also be converted. The process is similar to the previous one. The goal is to convert a possessive pronoun \emph{můj (my)} and its forms to possessive pronouns \emph{její (her)} / \emph{jeho (his)}, or the possessive form of a proper noun. Considering the limits given by the morphological analyzer, I have decided not to include the second type of replacement. Therefore all the possessive pronouns would be replaced by possessive pronouns.
 
-The rule is illustrated in a diagram %%\ref{fig:icher-posspron-rule}.
+The rule is illustrated in a diagram \ref{fig:icher-posspron-rule}.
+
+\begin{figure}[ht!]
+\includegraphics[width=\textwidth]{data/Icher-Posspron-Rule.pdf}
+\caption{Possessive pronouns replacement rule}
+\label{fig:icher-posspron-rule}
+\end{figure}
+
+\subsection{Conditionals, indicatives, conjunctions}
+
+The third rule covers several cases. This is because the conversion procedure is same in all cases. The process is simple: we just need to change the person in the word's tag, and then generate a new word form from this new tag and the original lemma, as shown in \ref{fig:icher-predicate-rule}.
+
+To put it simply, this rule includes these types of conversion:
+\begin{itemize}
+	\item bych/bychom $\rightarrow$ by -- \emph{conditional auxiliary verbs}
+	\item budu/budeme $\rightarrow$ bude/budou -- \emph{future indicatives}
+	\item píšu/píšeme $\rightarrow$ píše/píšeme -- \emph{example of present indicative}
+	\item abych/abychom/kdybych/kdybychom $\rightarrow$ aby/kdyby -- \emph{conjunctions}
+\end{itemize}
+
+
+\begin{figure}[ht!]
+\includegraphics[width=\textwidth]{data/Icher-Predicate-Rule.pdf}
+\caption{Rule replacing the conditionals, conjunctions and verb forms in present indicative tense and future indicative tense}
+\label{fig:icher-predicate-rule}
+\end{figure}
+
+\subsection{Auxiliary verbs}
+
+Finally, we need to replace or delete other auxiliary verb. If the participle that auxiliary verb depends on, the auxiliar should be deleted. However, if the participle is passive, the auxiliar should be kept and converted.
+
+For example, a sentence \emph{Ukradl \textbf{jsem} klávesnici (I stole a keyboard)} converts to \emph{Ukradl klávesnici (He stole a keyboard)}, but \emph{\textbf{Jsem} ukradena (I am stolen)} should convert to \emph{\textbf{Je} ukradena (She is stolen)}.
+
+Also, the auxiliary verb needs to be in indicative mode to be converted. The conditional verbs are covered in the previous rule. Then, there are other modes of auxiliary verbs that should not be converted at all, as the auxiliar in plusquamperfect. For instance, a sentence \emph{\textbf{Byl jsem} ukradl klávesnici} might convert to \emph{Juraj \textbf{byl} ukradl klávesnici}. As we can see, the sentence in the first-person narrative contains two auxiliary verbs, however, only the one in indicative mode would be deleted.
+
+I present the rule in \ref{fig:icher-auxverb-rule}.
 
 %%\begin{figure}[ht!]
-%%\includegraphics[width=\textwidth]{data/Icher-Posspron-Rule.pdf}
-%%\caption{Possessive pronouns replacement rule}
-%%\label{fig:icher-posspron-rule}
+%%\includegraphics[width=\textwidth]{data/Icher-Auxverb-Rule.pdf}
+%%\caption{Rule replacing the indicative forms of auxiliary verbs}
+%%\label{fig:icher-auxverb-rule}
 %%\end{figure}
-
 
