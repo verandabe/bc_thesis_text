@@ -60,10 +60,36 @@ Figure \ref{fig:eval-first-to-third} shows very good results for the first-perso
 
 \subsection{Third-person to First-person results}
 On the other hand, figure \ref{fig:eval-third-to-first} illustrates quite a different picture. The third-to-first conversion direction delivers poor performance results. Notice that the number of completely incorrect sentences is very high (more than 25\%) even when considering the fact that 68 sentences were not affected by the conversion at all.
+The reasons for these poor results are further described in Section \ref{sec:errors}.
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{data/Eval-Third-To-First.pdf}
 \caption{Results statistics for third-person to first-person conversion}
 \label{fig:eval-third-to-first}
 \end{figure}
+
+\section{Errors and How to Fix Them} \label{sec:errors}
+
+In this section, I provide an error analysis. I examine the causes of the errors and discuss their solvability. The errors are divided into two groups: 1) incorrect conversion and 2) text quality lost.
+
+\subsection{Conversion Errors}
+
+As mentioned in the previous section, most conversion errors come from the third-to-first conversion. Since this direction is much more complicated than the other way, the poorer results are not surprising. In contrast to first-to-third, when converting a text from the third-person narrative, we need to recognize the protagonist who should become the narrator and change all the words whose form depends on this protagonist. This task should be handled by anaphora resolution. Nevertheless, the performance of Aara is poor. Thus, it affects RephrasErIch. The considerable difference between first-to-third and third-to-first results confirms this issue since anaphora resolution is not used in the first-to-third conversion.
+
+TODO Solution: ???
+
+TODO Other causes of conversion errors:::
+
+\subsection{Text Quality Errors}
+
+- word order -- zvratná zájmena, subject vs. žádný subjekt..., auxiliar vs. žádný auxiliar
+
+- předložky (nade, nad)
+
+- použití vlastního jména vs. použití zájmena, pozice ve větě
+
+- jednoznačnost -- first-to-third --> zmenou osoby neni jasné, na koho treba zajmeno odkazuje, kdo to dela atd.
+
+TODO TODO TODO
+
 
