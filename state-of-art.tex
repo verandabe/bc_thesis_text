@@ -12,7 +12,7 @@ As mentioned in the previous chapter, my motivation for this task is to create a
 
 The system designed by Lee et al. \cite{lee2020converting} focused on spoken messages in VA-assisted conversations. To the best of our knowledge, this is the first attempt at point-of-view conversion. The authors have developed several models that can be classified by two main approaches: rule-based and machine learning. The rule-based model works with a set of rules which describe how the grammatical conversion should be performed. The model relies on a classification model that provides Named Entity Recognition, which is already implemented in the VA. In addition, the model uses a Part Of Speech (POS) tagger and a constituency parser. Furthermore, several deep learning based models have been developed. These models were trained on data collection provided by Amazon Mechanical Turk workers. According to the evaluation results, the deep learning based models have better performance.
 
-Recently, another effort for conversion has been published by Granero-Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike our work and the work of Lee et al. they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, which served as a baseline here, as well.
+Recently, another effort for conversion has been published by Granero Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike our work and the work of Lee et al. they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, which served as a baseline here, as well.
 
 \section{Tools for Czech}
 
@@ -30,7 +30,7 @@ is one of the first morphological analyzers for Czech. Currently, Ajka is no lon
 
 \paragraph{Majka}
 
-is a fast morphological analyzer that was developed at Masaryk University. The implementation builds on the previous system, Ajka, but it is faster and more flexible. Majka is based on finite automata, and it works with a morphological database. At the moment, the author provides databases not only for Czech but also for other languages. The tool is able to assign lemmas and tags to the analyzed word form, generate all word forms of a given lemma and generate a word form based on the given lemma and tags. \cite{majka}
+is a fast morphological analyzer developed at Masaryk University. The implementation builds on the previous system, Ajka, but it is faster and more flexible. Majka is based on finite automata, and it works with a morphological database. At the moment, the author provides databases not only for Czech but also for other languages. The tool is able to assign lemmas and tags to the analyzed word form, generate all word forms of a given lemma and generate a word form based on the given lemma and tags. \cite{majka}
 
 \paragraph{MorphoDiTa} (Morphological Dictionary and Tagger) is a tool developed at Charles University that performs morphological analysis, morphological generation and tagging. \cite{strakova14}
 
