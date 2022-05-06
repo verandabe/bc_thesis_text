@@ -76,20 +76,43 @@ In this section, I provide an error analysis. I examine the causes of the errors
 
 As mentioned in the previous section, most conversion errors come from the third-to-first conversion. Since this direction is much more complicated than the other way, the poorer results are not surprising. In contrast to first-to-third, when converting a text from the third-person narrative, we need to recognize the protagonist who should become the narrator and change all the words whose form depends on this protagonist. This task should be handled by anaphora resolution. Nevertheless, the performance of Aara is poor. Thus, it affects RephrasErIch. The considerable difference between first-to-third and third-to-first results confirms this issue since anaphora resolution is not used in the first-to-third conversion.
 
-TODO Solution: ???
-
-TODO Other causes of conversion errors:::
+A solution to this error is beyond the limits of the tool. Aara would have to be improved or replaced by better performing tool.
 
 \subsection{Text Quality Errors}
 
-- word order -- zvratná zájmena, subject vs. žádný subjekt..., auxiliar vs. žádný auxiliar
+\subsubsection{Word order}
 
-- předložky (nade, nad)
+Unnatural word order is the most common quality error. It was usually caused by adding or removing words during the conversion. It mostly includes:
+
+\begin{itemize}
+	\item \textbf{Adding or removing a subject.} Example: \emph{Adam věří jim to.} The original sentence here was \emph{Věřím jim to.} and the tool added the protagonist's name at the beginning of the sentence. However, the other words should be reordered to sound natural: \emph{Adam jim to věří.}
+	\item \textbf{Adding or removing an auxiliary verb.} Example: \emph{Konečně se jsem mohla rozesmát.} The auxiliary verb \emph{jsem} was added to the original sentence \emph{Konečně se mohla rozesmát.}. In Czech, it is natural for reflexive pronoun \emph{se} to come after the auxiliar: \emph{Konečně jsem se mohla rozesmát.}
+\end{itemize}
+
+Word order in Czech sentences is relatively free, but some strict rules exist. Implementing these rules into the system would solve many unnaturally sounding sentences.
+
+Nevertheless, the order might be chosen according to other factors, such as emotional state, communication aim of the speaker, etc. These factors can not be easily expressed in rules.
+
+
+\subsubsection{Prepositions}
+
+Some prepositions in the Czech language have a shorter and longer version. The longer versions aim to make the pronunciation easier. There is no official rule saying when to use which, but the longer versions are usually used to make the pronunciation easier.
+
+Right now, the tool does not change the preposition during the conversion. The evaluation revealed this as a problem that creates unnaturally sounding phrases.
+
+For instance, let us have a sentence \emph{Táta šel k ní}. Converting the sentence to the first-person narrative, we get \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- we would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
+
+I suppose this issue could be solvable by adding a few rules. As has been said, no official rule for this exists, but there are some general common-sense rules to apply.
+
+\subsubsection{Proper nouns vs. pronouns}
 
 - použití vlastního jména vs. použití zájmena, pozice ve větě
+
+\subsubsection{Unambiguity}
 
 - jednoznačnost -- first-to-third --> zmenou osoby neni jasné, na koho treba zajmeno odkazuje, kdo to dela atd.
 
 TODO TODO TODO
+
 
 
