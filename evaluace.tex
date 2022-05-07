@@ -36,7 +36,7 @@ The evaluation's non-binarity also offers a basic error analysis, which gives us
 
 Based on the marking, I retrieved the results statistics.
 
-As can be seen in figure \ref{fig:eval-total}, most of the sentences were converted correctly, which also includes not converting the sentence at all (about 66\%). Only 17\% of the 388 sentences were converted incorrectly, partially, or entirely. The remaining 17\% are sentences that were converted correctly. However, the conversion damaged the text's quality (naturality of expression, unambiguity, or grammar).
+As can be seen in figure \ref{fig:eval-total}, most of the sentences were converted correctly, which also includes not converting the sentence at all (about 66\%). Only 17\% of the 388 sentences were converted incorrectly, partially, or entirely. The remaining 17\% are sentences that were converted correctly. However, the conversion damaged the text's quality (naturalness of expression, unambiguity, or grammar).
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{data/Eval-Total.pdf}
@@ -56,6 +56,21 @@ Figure \ref{fig:eval-first-to-third} shows very good results for the first-perso
 \label{fig:eval-first-to-third}
 \end{figure}
 
+In Table \ref{tab:example-first}, I show examples of rephrased sentences with the assigned results.
+
+\begin{table}[!ht]
+	\caption{Examples of rephrased sentences from first-person to third-person narrative}
+	\label{tab:example-first}
+		\begin{tabular}{m{5em}|m{11em}|m{11em}}
+			result & original sentence & rephrased sentence \\
+			\hline
+			Correct & Mám sto chutí sebou trhnout a vysvobodit se z doteku jeho horkých prstů, ale vím, že mi to pouta nedovolí, a i kdybych je neměla, zřejmě by na to moje tělo nenašlo sílu. &  Majka má sto chutí sebou trhnout a vysvobodit se z doteku jeho horkých prstů, ale ví, že jí to pouta nedovolí, a i kdyby je neměla, zřejmě by na to její tělo nenašlo sílu. \\
+			Ambiguous & \emph{Odvrátila jsem pohled z~ráje a uviděla Evu.} Následovala mě. & \emph{Odvrátila pohled z ráje a uviděla Evu.} Následovala ji. \\
+			Unnatural & Byla jednou z mála lidí, se kterou jsem se sblížil. & Byla jednou z mála lidí, se kterou Gabriel se hodně sblížil. \\
+			Grammar error & Sdílela se mnou jídlo. & Sdílela se jí jídlo. \\
+			Incorrect & Její obličej nerozeznám, ale slyším, že pláče. & Její obličej nerozezná, ale slyším, že pláče. \\
+		\end{tabular}
+\end{table}
 
 
 \subsection{Third-person to First-person results}
@@ -67,6 +82,24 @@ The reasons for these poor results are further described in Section \ref{sec:err
 \caption{Results statistics for third-person to first-person conversion}
 \label{fig:eval-third-to-first}
 \end{figure}
+
+Examples of the sentences are shown in Table \ref{tab:example-third}.
+
+\begin{table}[!ht]
+	\caption{Examples of rephrased sentences from third-person to first-person narrative}
+	\label{tab:example-third}
+	\begin{flushleft}
+		\begin{tabular}{m{5em}|m{11em}|m{11em}}
+			result & original sentence & rephrased sentence \\
+			\hline
+			Correct & Král a královna osaměli. & Král a já jsme osaměli. \\
+			Unnatural & Hana se na ni dívala a čekala. & Se na ni jsem dívala a čekala. \\
+			Grammar error & Eva byla ráda, že se matka nechala přesvědčit, aby utekly. & Já byla ráda, že se matka nechala přesvědčit, aby jsme utekly. \\
+			Incorrect & Hana má pocit, jako by prošvihla nějakou několikaměsíční akci, kde se všichni mezitím seznámili. & Mám pocit, jako by prošvihla nějakou několikaměsíční akci, kde se všichni mezitím seznámili.\\
+		\end{tabular}
+	\end{flushleft}
+\end{table}
+
 
 \section{Errors and How to Fix Them} \label{sec:errors}
 
@@ -89,30 +122,31 @@ Unnatural word order is the most common quality error. It was usually caused by 
 	\item \textbf{Adding or removing an auxiliary verb.} Example: \emph{Konečně se jsem mohla rozesmát.} The auxiliary verb \emph{jsem} was added to the original sentence \emph{Konečně se mohla rozesmát.}. In Czech, it is natural for reflexive pronoun \emph{se} to come after the auxiliar: \emph{Konečně jsem se mohla rozesmát.}
 \end{itemize}
 
-Word order in Czech sentences is relatively free, but some strict rules exist. Implementing these rules into the system would solve many unnaturally sounding sentences.
+Word order in Czech is not entirely free, but it is variable. It is applied mainly by the role of the sentence members but also by the rhythmic principle and other circumstances. Often, the word order is determined semantically. Their informativeness and expressive dynamics influence the order of the sentence members, and it also depends on the type of sentence. \cite{vlasin-slovnik} This semantic principle would be challenging to implement in the tool. On the other hand, most words remain in the same order after rephrasing, so I believe that semantics has a relatively minor influence on unnaturalness.
 
-Nevertheless, the order might be chosen according to other factors, such as emotional state, communication aim of the speaker, etc. These factors can not be easily expressed in rules.
+Another principle mentioned is the rhythmic principle. The rhythm of a sentence is mainly influenced by the position of unstressed clitics, such as short forms of personal pronouns (\emph{mě, mi, ho, mu...}), reflexive pronouns (\emph{se, si}) or auxiliary verbs (\emph{jsem, bych, by...}). \cite{vlasin-slovnik}
+
+The relative order of clitics is quite precisely defined. Thus, by adding a few rules, it should be possible to help the tool generate more natural sentences.
 
 
 \subsubsection{Prepositions}
 
-Some prepositions in the Czech language have a shorter and longer version. The longer versions aim to make the pronunciation easier. There is no official rule saying when to use which, but the longer versions are usually used to make the pronunciation easier.
-
-Right now, the tool does not change the preposition during the conversion. The evaluation revealed this as a problem that creates unnaturally sounding phrases.
+Some prepositions in Czech have both vocalized and non-vocalized forms. The vocalized (longer) versions are used mainly for easier pronunciation. Usually, when the word after the preposition begins with the same consonant or a sequence of several consonants. However, it may also depend on other factors, such as rhythm. \cite{vlasin-slovnik}
 
 For instance, let us have a sentence \emph{Táta šel k ní}. Converting the sentence to the first-person narrative, we get \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- we would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
 
-I suppose this issue could be solvable by adding a few rules. As has been said, no official rule for this exists, but there are some general common-sense rules to apply.
-
-\subsubsection{Proper nouns vs. pronouns}
-
-- použití vlastního jména vs. použití zájmena, pozice ve větě
-
-\subsubsection{Unambiguity}
-
-- jednoznačnost -- first-to-third --> zmenou osoby neni jasné, na koho treba zajmeno odkazuje, kdo to dela atd.
-
-TODO TODO TODO
+Currently, the tool does not change the prepositions when the following word converts. However, this issue would be solvable, at least for cases where the word begins with the same consonant or multiple consonants.
 
 
+\subsubsection{Proper nouns, unnaturalness and ambiguity}
+
+When rephrasing, the tool decides in some processes whether to add the proper name of the protagonist instead of the unexpressed subject or pronoun, especially when converting from first to third person. One reason for this addition is to avoid ambiguity. However, this decision is made randomly, leading to the unnaturalness of the text and ambiguity problems.
+
+The \textbf{unnaturalness} occurs when a proper name is inserted in an inappropriate place in a sentence.
+
+An example may be the following sentence: \emph{Rozhodl jsem se, že půjdu na nákup.} RephrasErIch generated an output: \emph{Rozhodl se, že Adam půjde na nákup.} The sounding would become natural if the proper noun (\emph{Adam}) would stand in the first phrase of the sentence, or nowhere. Also, overuse of the name can be unnatural.
+
+In contrast to unnaturalness, \textbf{ambiguity} occurs when a proper name is not inserted. In the first-person narrative, the grammatical person identifies whom the word refers. However, by conversion, we lose this identification. Hence the need to add a proper name to clarify the meaning.
+
+It is a matter of considering where to draw the line between naturalness and ambiguity. Using a proper name in every phrase would lead to perfect unambiguity, but such a sentence would sound highly unnatural. That is the reason why the tool adds the name only with some probability. Nevertheless, it might be helpful to implement a more intelligent decision algorithm, which would consider the position of the phrase in the sentence and further context.
 
