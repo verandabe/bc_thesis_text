@@ -35,7 +35,7 @@ There are few tools for Czech anaphora resolution, and the existing ones do not 
 
 \section{Class structure}
 
-The tool is implemented as a Python library. The library consists of six important classes. In this section, I briefly describe these main classes. Next, I show how they interact in an example input.
+The tool is implemented as a Python library. The library consists of six important classes. By decomposing the processes into different levels, it is easier to identify at which linguistic level the problem occurred, it allows parts of the text to be easily put back together, and I found the object representation to be a clear way of storing information from the various analyses. In this section, I briefly describe these main classes and their interactions.
 
 \subsection{RephrasErIch}
 
@@ -73,3 +73,28 @@ At the word level, finally, the narrative conversion is being done. The word gen
 
 The last important class I have decided to mention is the \texttt{Protagonist}. This class stands out somewhat from the whole class structure, but at the same time, it is passed by across all the other classes. It keeps the information about the story protagonist, which is essential to the conversion process.
 
+\section{Conversion Rules Implementation}
+
+This section describes the implementation of the rules introduced in Chapter \ref{chap:navrh-pravidel}.
+
+For clarity, the implementation of the rules is divided in two files (\texttt{erich\_rules.py} and \texttt{icher\_rules.py} \footnote{The terms \emph{ich} and \emph{er} come from German, where \emph{ich} means \emph{I} and \emph{er} means \emph{he}. These terms are also used in Czech to refer to first-person and third-person narratives.})  according to the conversion direction. Each rule is implemented as a Python function. These functions are called inside methods of the \texttt{Word} class. (\texttt{\emph{word}.\_ich\_to\_er()}, \texttt{\emph{word}.\_er\_to\_ich()})
+As can be seen in Chapter \ref{chap:navrh-pravidel}, each rule starts with an assumption (e.g. as \emph{Word is Auxiliary verb}). These assumptions are represented by conditions inside the \texttt{Word} methods. If a condition is evaluated as true, the relevant rule is called, and the return value is set as the new form of the word.
+Thus, there are two steps needed to add a new rule to the implementation:
+
+\begin{enumerate}
+	\item Define the rule as a function in \texttt{icher\_rules.py}/\texttt{erich\_rules.py}.
+	\item Add the initial assumption as a condition to the corresponding \texttt{Word} method and call the rule function in that block.
+\end{enumerate}
+
+\subsection*{Notes to the implementation of the rules}
+
+I note that not all of the proposed rules could be implemented. The tool does not include a rule replacing possessive pronouns when converting from third-person to the first-person narrative. This is because of the limitations set by Aara, which is currently unable to assign references to possessive pronouns.
+
+\section{How to Use the Tool}
+
+RephrasErIch's use is limited by several factors:
+
+\begin{itemize}
+	\item RephrasErIch works only on Unix due to the command line execution of some programs.
+	\item To simplify the use of external tools, which are all available on Natural Language Processing Center machines, it is recommended to run it on these machines to avoid the need to install a large number of tools.
+\end{itemize}
