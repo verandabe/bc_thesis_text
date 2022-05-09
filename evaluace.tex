@@ -126,7 +126,7 @@ Word order in Czech is not entirely free, but it is variable. It is applied main
 
 Another principle mentioned is the rhythmic principle. The rhythm of a sentence is mainly influenced by the position of unstressed clitics, such as short forms of personal pronouns (\emph{mě, mi, ho, mu...}), reflexive pronouns (\emph{se, si}) or auxiliary verbs (\emph{jsem, bych, by...}). \cite{vlasin-slovnik}
 
-The relative order of clitics is quite precisely defined. Thus, by adding a few rules, it should be possible to help the tool generate more natural sentences.
+The relative order of clitics is quite precisely defined. Thus, adding a few rules might help the tool generate more natural sentences.
 
 
 \subsubsection{Prepositions}
@@ -138,13 +138,13 @@ For instance, let us have a sentence \emph{Táta šel k ní}. Converting the sen
 Currently, the tool does not change the prepositions when the following word converts. However, this issue would be solvable, at least for cases where the word begins with the same consonant or multiple consonants.
 
 
-\subsubsection{Proper nouns, unnaturalness and ambiguity}
+\subsubsection{Proper nouns, unnaturalness, and ambiguity}
 
 When rephrasing, the tool decides in some processes whether to add the proper name of the protagonist instead of the unexpressed subject or pronoun, especially when converting from first to third person. One reason for this addition is to avoid ambiguity. However, this decision is made randomly, leading to the unnaturalness of the text and ambiguity problems.
 
-The \textbf{unnaturalness} occurs when a proper name is inserted in an inappropriate place in a sentence.
+The \textbf{unnaturalness} occurs when a proper name is inserted in the wrong place in a sentence.
 
-An example may be the following sentence: \emph{Rozhodl jsem se, že půjdu na nákup.} RephrasErIch generated an output: \emph{Rozhodl se, že Adam půjde na nákup.} The sounding would become natural if the proper noun (\emph{Adam}) would stand in the first phrase of the sentence, or nowhere. Also, overuse of the name can be unnatural.
+An example may be the following sentence: \emph{Rozhodl jsem se, že půjdu na nákup.} RephrasErIch generated an output: \emph{Rozhodl se, že Adam půjde na nákup.} The sounding would become natural if the proper noun (\emph{Adam}) would stand in the first phrase of the sentence or nowhere. Also, overuse of the name can be unnatural.
 
 In contrast to unnaturalness, \textbf{ambiguity} occurs when a proper name is not inserted. In the first-person narrative, the grammatical person identifies whom the word refers. However, by conversion, we lose this identification. Hence the need to add a proper name to clarify the meaning.
 

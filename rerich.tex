@@ -22,7 +22,7 @@ RephrasErIch uses Majka directly, mainly for the third use case. Majka is writte
 
 \subsection{Desamb}
 
-\emph{Desamb} is a morphological disambiguator using Majka as a morphological tagger. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word's context, essential for correct tagging.
+\emph{Desamb} is a morphological disambiguator using Majka as a morphological tagger. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word's context, which is essential for correct tagging.
 
 In my implementation, I use Desamb to generate an input for syntactic analysis.
 
@@ -35,7 +35,7 @@ There are few tools for Czech anaphora resolution, and the existing ones do not 
 
 \section{Class structure}
 
-The tool is implemented as a Python library. The library consists of six important classes. By decomposing the processes into different levels, it is easier to identify at which linguistic level the problem occurred, it allows parts of the text to be easily put back together, and I found the object representation to be a clear way of storing information from the various analyses. In this section, I briefly describe these main classes and their interactions.
+The tool is implemented as a Python library. The library consists of six important classes. It is easier to identify at which linguistic level the problem occurred by decomposing the processes into different levels. It allows parts of the text to be easily put back together, and I found the object representation to be a straightforward way of storing information from the various analyses. In this section, I briefly describe these main classes and their interactions.
 
 \subsection{RephrasErIch}
 
@@ -47,7 +47,7 @@ The tool is implemented as a Python library. The library consists of six importa
 	\item \texttt{text} -- a given text, an instance of a class \texttt{Text}
 \end{itemize}
 
-The essential method is a method \texttt{rephrase} which creates an object representation of the given text and it starts the narrative conversion.
+The essential method is a method \texttt{rephrase} which creates an object representation of the given text and starts the narrative conversion.
 
 \subsection{Text}
 
@@ -96,7 +96,7 @@ Currently, RephrasErIch's use is limited by several factors:
 
 \begin{itemize}
 	\item RephrasErIch works only on Unix due to the command line execution of some programs.
-	\item The use of the tool assumes running on the machines of the NLP Centre of the Faculty of Informatics, which have access to the centre's other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
+	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the center's other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
 \end{itemize}
 
 As stated in the introduction of this thesis, the goal was not to create an application for ordinary users, so I do not consider these limitations too serious at the moment.
