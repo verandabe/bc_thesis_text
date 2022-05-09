@@ -1,7 +1,7 @@
 %% s využitím syntaktického analyzátoru SET vytvořte program, který bude převádět texty mezi oběma formami. Zohledněte gramaticko-syntaktické jevy spojené s každou z vyprávěcích forem (osoba slovesných tvarů, osobní a přivlastňovací zájmena, spojky kdyby a aby, přímá řeč, rezoluce anafor).
 In this chapter, I describe the implementation of the tool \emph{RephrasErIch} which converts a given text between first-person and third-person narratives, and I present other tools that I used in the implementation.
 
-\section{Tools used}
+\section{Tools used} \label{sec:external-tools}
 
 \subsection{SET}
 
@@ -92,9 +92,49 @@ I note that not all of the proposed rules could be implemented. The tool does no
 
 \section{How to Use the Tool}
 
-RephrasErIch's use is limited by several factors:
+Currently, RephrasErIch's use is limited by several factors:
 
 \begin{itemize}
 	\item RephrasErIch works only on Unix due to the command line execution of some programs.
-	\item To simplify the use of external tools, which are all available on Natural Language Processing Center machines, it is recommended to run it on these machines to avoid the need to install a large number of tools.
+	\item The use of the tool assumes running on the machines of the NLP Centre of the Faculty of Informatics, which have access to the centre's other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
 \end{itemize}
+
+As stated in the introduction of this thesis, the goal was not to create an application for ordinary users, so I do not consider these limitations too serious at the moment.
+
+I illustrate the usage of the tool in the following code, which should be placed in the \texttt{main.py} file.
+\newline
+
+\begin{lstlisting}[language=Python]
+import sys
+
+sys.path.append('./enums/')  # enumeration classes, such as Forms
+sys.path.append('./classes/')  # the six classes mentioned in section 6.2
+sys.path.append('./tools/')  # classes handling communication with external tools
+
+from RephrasErIch import RephrasErIch
+from Forms import Form
+
+text = "Petr chce, aby Anna plakala."
+
+rerich = RephrasErIch(Form.ER)
+rerich.create_protagonist("Anna")
+rephrased_text = rerich.rephrase(text)
+\end{lstlisting}
+
+
+As can be seen, five main steps are needed to convert a text:
+
+\begin{enumerate}
+	\item Add all the necessary paths to subdirectories. In the example, I use a module \texttt{sys} to do so.
+	\item Import the classes being used.
+	\item Initialize an object (\texttt{rerich}) as an instance of the class \texttt{RephrasErIch} with declared original narrative form of the text.
+	\item Create an instance of the class \texttt{Protagonist}.
+	\item Call the method \texttt{rephrase(text: str)} on \texttt{rerich} with the text to rephrase as an argument.
+\end{enumerate}
+
+If we print the content of the variable after the program has finished, we might get the following output:
+\newline
+\begin{lstlisting}[language=bash]
+> Petr chce, abych plakala.
+\end{lstlisting}
+
