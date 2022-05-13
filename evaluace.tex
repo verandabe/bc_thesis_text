@@ -4,7 +4,7 @@
 
 For evaluation, I have constructed my own text corpus. The corpus is composed of texts written by contemporary Czech authors who provided the texts themselves. The corpus is intentionally small as humans did the evaluation, and evaluating a large set of sentences would be expensive.
 
-In selecting the texts, I tried to capture various characteristics of the texts. Thus, the corpus consists of several different literary genres; the narrators are both male and female; I have included texts written in the present and past tense, and I have chosen texts containing different types of speech. (Such as direct speech, semi-direct speech...) Finally, the corpus, of course, includes both first-person and third-person narratives.
+In selecting the texts, I tried to capture various characteristics of the texts. Thus, the corpus consists of several different literary genres; the narrators are both male and female; I have included texts written in the present and past tense, and I have chosen texts containing different types of speech, such as direct speech or semi-direct speech. Finally, the corpus, of course, includes both first-person and third-person narratives.
 
 In total, the evaluation data consists of 36 different texts composed of 388 sentences. The numbers divided by narratives are captured in chart \ref{fig:eval-input-numbers}.
 
@@ -30,7 +30,7 @@ The possible statements to mark:
 	\item The sentence has not been converted, and that is correct.
 \end{itemize}
 
-The evaluation's non-binarity also offers a basic error analysis, which gives us a basis for discussion about the quality of generated texts.
+The evaluation non-binarity also offers a basic error analysis, which gives a basis for discussion about the quality of generated texts.
 
 \section{Results}
 
@@ -44,7 +44,7 @@ As can be seen in figure \ref{fig:eval-total}, most of the sentences were conver
 \label{fig:eval-total}
 \end{figure}
 
-Now let us take a look at the results for each narrative mode.
+The following subsections analyze the results separately for each narrative mode.
 
 \subsection{First-person to Third-person results}
 
@@ -66,7 +66,7 @@ In Table \ref{tab:example-first}, I show examples of rephrased sentences with th
 			\hline
 			Correct & Mám sto chutí sebou trhnout a vysvobodit se z doteku jeho horkých prstů, ale vím, že mi to pouta nedovolí, a i kdybych je neměla, zřejmě by na to moje tělo nenašlo sílu. &  Majka má sto chutí sebou trhnout a vysvobodit se z doteku jeho horkých prstů, ale ví, že jí to pouta nedovolí, a i kdyby je neměla, zřejmě by na to její tělo nenašlo sílu. \\
 			Ambiguous & \emph{Odvrátila jsem pohled z~ráje a uviděla Evu.} Následovala mě. & \emph{Odvrátila pohled z ráje a uviděla Evu.} Následovala ji. \\
-			Unnatural & Byla jednou z mála lidí, se kterou jsem se sblížil. & Byla jednou z mála lidí, se kterou Gabriel se hodně sblížil. \\
+			Unnatural & Byla jednou z mála lidí, se kterou jsem se hodně sblížil. & Byla jednou z mála lidí, se kterou Gabriel se hodně sblížil. \\
 			Grammar error & Sdílela se mnou jídlo. & Sdílela se jí jídlo. \\
 			Incorrect & Její obličej nerozeznám, ale slyším, že pláče. & Její obličej nerozezná, ale slyším, že pláče. \\
 		\end{tabular}
@@ -74,7 +74,7 @@ In Table \ref{tab:example-first}, I show examples of rephrased sentences with th
 
 
 \subsection{Third-person to First-person results}
-On the other hand, figure \ref{fig:eval-third-to-first} illustrates quite a different picture. The third-to-first conversion direction delivers poor performance results. Notice that the number of completely incorrect sentences is very high (more than 25\%) even when considering the fact that 68 sentences were not affected by the conversion at all.
+On the other hand, figure \ref{fig:eval-third-to-first} illustrates quite a different picture. The third-to-first conversion direction delivers poor performance results. Notice that the number of completely incorrect sentences is high (more than 25\%) even when considering the fact that 68 sentences were not affected by the conversion at all.
 The reasons for these poor results are further described in Section \ref{sec:errors}.
 
 \begin{figure}[!ht]
@@ -122,7 +122,7 @@ Unnatural word order is the most common quality error. It was usually caused by 
 	\item \textbf{Adding or removing an auxiliary verb.} Example: \emph{Konečně se jsem mohla rozesmát.} The auxiliary verb \emph{jsem} was added to the original sentence \emph{Konečně se mohla rozesmát.}. In Czech, it is natural for reflexive pronoun \emph{se} to come after the auxiliar: \emph{Konečně jsem se mohla rozesmát.}
 \end{itemize}
 
-Word order in Czech is not entirely free, but it is variable. It is applied mainly by the role of the sentence members but also by the rhythmic principle and other circumstances. Often, the word order is determined semantically. Their informativeness and expressive dynamics influence the order of the sentence members, and it also depends on the type of sentence. \cite{vlasin-slovnik} This semantic principle would be challenging to implement in the tool. On the other hand, most words remain in the same order after rephrasing, so I believe that semantics has a relatively minor influence on unnaturalness.
+Word order in Czech is not entirely free, but it is variable. It is applied mainly by the role of the sentence parts but also by the rhythmic principle and other circumstances. Often, the word order is determined semantically. Their informativeness and expressive dynamics influence the order of the sentence members, and it also depends on the type of sentence. \cite{vlasin-slovnik} This semantic principle would be challenging to implement in the tool. On the other hand, most words remain in the same order after rephrasing, so I believe that semantics has a relatively minor influence on unnaturalness.
 
 Another principle mentioned is the rhythmic principle. The rhythm of a sentence is mainly influenced by the position of unstressed clitics, such as short forms of personal pronouns (\emph{mě, mi, ho, mu...}), reflexive pronouns (\emph{se, si}) or auxiliary verbs (\emph{jsem, bych, by...}). \cite{vlasin-slovnik}
 
@@ -133,7 +133,7 @@ The relative order of clitics is quite precisely defined. Thus, adding a few rul
 
 Some prepositions in Czech have both vocalized and non-vocalized forms. The vocalized (longer) versions are used mainly for easier pronunciation. Usually, when the word after the preposition begins with the same consonant or a sequence of several consonants. However, it may also depend on other factors, such as rhythm. \cite{vlasin-slovnik}
 
-For instance, let us have a sentence \emph{Táta šel k ní}. Converting the sentence to the first-person narrative, we get \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- we would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
+For instance, the result of converting the sentence \emph{Táta šel k ní} is \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- we would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
 
 Currently, the tool does not change the prepositions when the following word converts. However, this issue would be solvable, at least for cases where the word begins with the same consonant or multiple consonants.
 

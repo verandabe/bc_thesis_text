@@ -3,7 +3,7 @@ In First-person $\rightarrow$ Third-person conversion direction, I have proposed
 	\begin{itemize}
 		\item Personal pronouns replacement
 		\item Possesive pronouns replacement
-		\item Replacement of contidional, present and future verb forms, conjunctions
+		\item Replacement of conditional, present and future verb forms, conjunctions
 		\item Auxiliary verbs replacement or deletion
 	\end{itemize}
 
@@ -41,9 +41,9 @@ The rule is illustrated in a diagram \ref{fig:icher-posspron-rule}.
 
 \subsection{Conditionals, indicatives, conjunctions}
 
-The third rule covers several cases because the conversion procedure is the same in all cases. The process is simple: we need to change the person in the word's tag and then generate a new word form from this new tag and the original lemma, as shown in \ref{fig:icher-predicate-rule}.
+The third rule covers several cases because the conversion procedure is the same in all cases. The process is straightforward: we need to change the person in the word tag and then generate a new word form from this new tag and the original lemma, as shown in \ref{fig:icher-predicate-rule}.
 
-To put it simply, this rule includes these types of conversion:
+This rule includes the following types of conversion:
 \begin{itemize}
 	\item bych/bychom $\rightarrow$ by -- \emph{conditional auxiliary verbs}
 	\item budu/budeme $\rightarrow$ bude/budou -- \emph{future indicatives}
@@ -58,13 +58,13 @@ To put it simply, this rule includes these types of conversion:
 \label{fig:icher-predicate-rule}
 \end{figure}
 
-\subsection{Auxiliary verbs}
+\subsection{Auxiliary verbs} \label{sec:aux-del}
 
 Finally, we need to replace or delete other auxiliary verbs. If the auxiliary verb depends on an active participle, the auxiliar should be deleted. However, if the participle is passive, the auxiliar should be kept and converted.
 
 For example, a sentence \emph{Ukradl \textbf{jsem} klávesnici (I stole a keyboard)} converts to \emph{Ukradl klávesnici (He stole a keyboard)}, but \emph{\textbf{Jsem} ukradena (I am stolen)} should convert to \emph{\textbf{Je} ukradena (She is stolen)}.
 
-Also, the auxiliary verb needs to be in the indicative mode to be converted. The conditional verbs are covered in the previous rule. Then, other modes of auxiliary verbs should not be converted at all, as the auxiliar in plusquamperfect. For instance, a sentence \emph{\textbf{Byl jsem} ukradl klávesnici} might convert to \emph{Juraj \textbf{byl} ukradl klávesnici}. As we can see, the sentence in the first-person narrative contains two auxiliary verbs; however, only the one in indicative mode would be deleted.
+Also, the auxiliary verb needs to be in the indicative mode to be converted. The conditional verbs are covered by the previous rule. Then, other modes of auxiliary verbs should not be converted at all, as the auxiliar in plusquamperfect. For instance, a sentence \emph{\textbf{Byl jsem} ukradl klávesnici} might convert to \emph{Juraj \textbf{byl} ukradl klávesnici}. As we can see, the sentence in the first-person narrative contains two auxiliary verbs; however, only the one in indicative mode would be deleted.
 
 I present the rule in \ref{fig:icher-auxverb-rule}.
 
@@ -96,13 +96,13 @@ The rule is illustrated in figure \ref{fig:erich-name-rule}.
 
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{data/Erich-Name-Rule.pdf}
-\caption{Rule replacing or skipping the occurrances of protagonist's name}
+\caption{Rule replacing or skipping the occurrences of protagonist's name}
 \label{fig:erich-name-rule}
 \end{figure}
 
 \subsection{Predicates}
 
-Indicative verbs should be replaced. In contrast to First-person $\rightarrow$ Third-person conversion, the information about a person is not enough. We need to know the subject to our predicate and replace the word with a new form only if the subject refers to the protagonist, as I show in figure \ref{fig:erich-predicate-rule}
+Indicative verbs should be replaced. In contrast to First-person $\rightarrow$ Third-person conversion, the information about a person is not enough. The subject related to the predicate has to be known, and the verb should be replaced by a new form only if the subject refers to the protagonist, as I show in Figure \ref{fig:erich-predicate-rule}
 
 \begin{figure}[!htbp]
 \includegraphics[]{data/Erich-Predicate-Rule.pdf}
@@ -123,7 +123,7 @@ These auxiliars are treated similarly to the predicates. I illustrate the decisi
 
 \subsection{Auxiliars addition}
 
-I talk about auxiliar deletion in the First-person $\rightarrow$ Third-person conversion section. Naturally, in the opposite direction, the auxiliars need to be added. Thus, the rule considers the participles. For each predicate expressed as a participle, we find the subject. If the subject refers to the protagonist, an auxiliary verb would be added.
+I talk about auxiliar deletion in Section \ref{sec:aux-del}. Naturally, in the opposite direction, the auxiliars need to be added. Thus, the rule considers the participles. For each predicate expressed as a participle, a subject is found. If the subject refers to the protagonist, an auxiliary verb would be added.
 
 Figure \ref{fig:erich-auxverb-rule} illustrates this rule.
 
@@ -167,5 +167,5 @@ The rule is not applied directly to the conjunction but only retrospectively whe
 
 \section{Direct speech}
 
-The last rule is independent of the person, and it covers the processing of direct speech. The simplifying assumption is that the direct speech is in quotes. Therefore, all the text found in quotes should be ignored during the conversion process.
+The last rule is independent of the person, and it covers the processing of direct speech. The simplifying assumption is that the direct speech is enclosed by quotes. Therefore, all the text found in quotes should be ignored during the conversion process.
 
