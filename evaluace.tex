@@ -107,7 +107,7 @@ In this section, I provide an error analysis. I examine the causes of the errors
 
 \subsection{Conversion Errors}
 
-As mentioned in the previous section, most conversion errors come from the third-to-first conversion. Since this direction is much more complicated than the other way, the poorer results are not surprising. In contrast to first-to-third, when converting a text from the third-person narrative, we need to recognize the protagonist who should become the narrator and change all the words whose form depends on this protagonist. This task should be handled by anaphora resolution. Nevertheless, the performance of Aara is poor. Thus, it affects RephrasErIch. The considerable difference between first-to-third and third-to-first results confirms this issue since anaphora resolution is not used in the first-to-third conversion.
+As mentioned in the previous section, most conversion errors come from the third-to-first conversion. Since this direction is much more complicated than the other way, the poorer results are not surprising. In contrast to first-to-third, when converting a text from the third-person narrative, it is necessary to recognize the protagonist who should become the narrator and change all the words whose form depends on this protagonist. This task should be handled by anaphora resolution. Nevertheless, the performance of Aara is poor. Thus, it affects RephrasErIch. The considerable difference between first-to-third and third-to-first results confirms this issue since anaphora resolution is not used in the first-to-third conversion.
 
 A solution to this error is beyond the limits of the tool. Aara would have to be improved or replaced by better performing tool.
 
@@ -133,7 +133,7 @@ The relative order of clitics is quite precisely defined. Thus, adding a few rul
 
 Some prepositions in Czech have both vocalized and non-vocalized forms. The vocalized (longer) versions are used mainly for easier pronunciation. Usually, when the word after the preposition begins with the same consonant or a sequence of several consonants. However, it may also depend on other factors, such as rhythm. \cite{vlasin-slovnik}
 
-For instance, the result of converting the sentence \emph{Táta šel k ní} is \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- we would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
+For instance, the result of converting the sentence \emph{Táta šel k ní} is \emph{Táta šel k mně}. However, that is unnatural, and it is harder to pronounce -- an author would rather write \emph{Táta šel ke mně}. This also applies in vice versa.
 
 Currently, the tool does not change the prepositions when the following word converts. However, this issue would be solvable, at least for cases where the word begins with the same consonant or multiple consonants.
 
@@ -146,7 +146,7 @@ The \textbf{unnaturalness} occurs when a proper name is inserted in the wrong pl
 
 An example may be the following sentence: \emph{Rozhodl jsem se, že půjdu na nákup.} RephrasErIch generated an output: \emph{Rozhodl se, že Adam půjde na nákup.} The sounding would become natural if the proper noun (\emph{Adam}) would stand in the first phrase of the sentence or nowhere. Also, overuse of the name can be unnatural.
 
-In contrast to unnaturalness, \textbf{ambiguity} occurs when a proper name is not inserted. In the first-person narrative, the grammatical person identifies whom the word refers. However, by conversion, we lose this identification. Hence the need to add a proper name to clarify the meaning.
+In contrast to unnaturalness, \textbf{ambiguity} occurs when a proper name is not inserted. In the first-person narrative, the grammatical person identifies whom the word refers. However, by conversion, this identification is lost. Hence the need to add a proper name to clarify the meaning.
 
 It is a matter of considering where to draw the line between naturalness and ambiguity. Using a proper name in every phrase would lead to perfect unambiguity, but such a sentence would sound highly unnatural. That is the reason why the tool adds the name only with some probability. Nevertheless, it might be helpful to implement a more intelligent decision algorithm, which would consider the position of the phrase in the sentence and further context.
 

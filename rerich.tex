@@ -43,7 +43,7 @@ The tool is implemented as a Python library. The library consists of six importa
 \texttt{RephrasErIch} is the highest class of the implementation which represents the tool itself. It keeps three attributes:
 
 \begin{itemize}
-	\item \texttt{from\_form} -- the narrative form we would like to convert from
+	\item \texttt{from\_form} -- the narrative form to convert from
 	\item \texttt{protg} -- a story protagonist
 	\item \texttt{text} -- a given text, an instance of a class \texttt{Text}
 \end{itemize}
@@ -130,8 +130,6 @@ As can be seen, five main steps are needed to convert a text:
 	\item Create an instance of the class \texttt{Protagonist}.
 	\item Call the method \texttt{rephrase(text: str)} on \texttt{rerich} with the text to rephrase as an argument.
 \end{enumerate}
-
-If we print the content of the variable after the program has finished, we might get the following output:
 
 When the content of the variable after the program has finished is printed, the output might be the following:
 \newline

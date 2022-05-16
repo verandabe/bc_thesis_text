@@ -1,3 +1,7 @@
-The aim of this thesis was to explore the topic of person transfer and implement a tool that will transfer texts between the first-person and third-person narratives.
-To achieve these goals, I have compiled an overview of the topic from the perspective of literary theory and Czech grammar. Based on this information, I proposed several rules for conversion in both directions. Subsequently, I implemented these rules in the RephrasErIch tool I created. Finally, I evaluated the tool's results on a set of textual data.
+The aim of this thesis was to explore the topic of person conversion and implement a tool that will convert texts between the first-person and third-person narratives in Czech language.
 
+To achieve these goals, I have compiled an overview of the topic from the perspective of literary theory and Czech grammar. Based on this information, I proposed several rules for conversion in both directions. Subsequently, I implemented these rules in the RephrasErIch tool I created. With the help of external annotators, I evaluated the results on a set of textual data.
+
+According to the results, the tool performs much better when converting from the first person to the third person. It managed to convert 95\% of the sentences correctly, 82\% of which without losing text quality. The quality problems were mainly related to poor word order. The results are much less satisfactory in the other direction, with only 7.5\% of sentences converted completely correctly. This low success rate was mainly due to poor anaphora resolution. Better results would be achieved if there was a better tool for anaphora resolution, and if a problem of short and long pronoun forms and clitics could be solved.
+
+The effect on the subjectivity of the text and the omniscience of the narrator did not show up during the evaluations. However, an analysis of the impacts of conversion on longer texts would be needed to examine these characteristics.
