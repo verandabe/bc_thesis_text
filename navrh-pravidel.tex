@@ -148,7 +148,7 @@ This rule covers the conversion of personal pronouns. The goal is to replace the
 
 \subsection{Possessive pronouns}
 
-As you can see in Figure \ref{fig:erich-posspron-rule}, the process of replacing possessive pronouns is almost the same as the previous one. Nevertheless, finding whom the pronoun refers to is more complicated.
+As can be seen in Figure \ref{fig:erich-posspron-rule}, the process of replacing possessive pronouns is almost the same as the previous one. Nevertheless, finding whom the pronoun refers to is more complicated.
 
 \begin{figure}[!htbp]
 \includegraphics[]{data/Erich-Posspron-Rule.pdf}
@@ -170,4 +170,12 @@ The rule is not applied directly to the conjunction but only retrospectively whe
 \section{Direct speech}
 
 The last rule is independent of the person, and it covers the processing of direct speech. The simplifying assumption is that the direct speech is enclosed by quotes. Therefore, all the text found in quotes should be ignored during the conversion process.
+
+\section*{Conclusion}
+
+In this chapter, I proposed twelve conversion rules covering both directions. The rules mainly cover grammatical phenomena: pronoun and proper noun replacement, changes in verb forms, and modifications of the conjunctions \emph{aby} and \emph{kdyby}.
+
+As explained above, the rule conversion from third person to first person is considerably more complicated. For this reason, not all rules can be implemented, and worse results can be expected in this direction.
+
+In the following chapters, I describe the implementation of the rules into the conversion system and then focus on evaluating the accuracy and coverage of the rules.
 

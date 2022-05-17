@@ -150,3 +150,28 @@ In contrast to unnaturalness, \textbf{ambiguity} occurs when a proper name is no
 
 It is a matter of considering where to draw the line between naturalness and ambiguity. Using a proper name in every phrase would lead to perfect unambiguity, but such a sentence would sound highly unnatural. That is the reason why the tool adds the name only with some probability. Nevertheless, it might be helpful to implement a more intelligent decision algorithm, which would consider the position of the phrase in the sentence and further context.
 
+
+\section{Results Example}
+
+Finally, I attach an example of a converted text sample from Chapter \ref{chap:teorie-vypraveni}.
+
+As an input, the sample in personal first-person narrative mode was used.
+
+\begin{otherlanguage*}{czech}
+\begin{quoting}
+Pověsil jsem kabát na dřevěný věšák u vchodu, očima vyhledal modré křeslo ve tvaru kapky a sedl si na stoličku naproti němu. Rozhlédl jsem se po kavárně. U okna seděla docela sympatická dívka s chlapcem, drželi se za ruce. V rohu pod policí knih posedávala postarší žena -- myslím, že jí mohlo být tak sedmdesát -- začtená do jednoho z výtisků. A nakonec světlovlasá baristka silnější postavy a tvářemi tak rudými, jako by to byla ona, kdo právě unikl náruči prosincové noci. Trochu mi připomínala učitelku ze školky. S nápojovým lístkem v rukou přistoupila ke mně, beze slova mi ho podala a zase se vrátila na své místo za pultem, kde se s nezaujatým výrazem věnovala svému mobilu. Bylo mi jasné, že se nemůže dočkat, až jí skončí směna. \newline
+\end{quoting}
+\end{otherlanguage*}
+
+The output of the conversion is the following:
+
+\begin{otherlanguage*}{czech}
+\begin{quoting}
+Pověsil kabát na dřevěný věšák u vchodu, očima vyhledal modré křeslo ve tvaru kapky a sedl si na stoličku naproti němu. Rozhlédl Matyáš se po kavárně. U okna seděla docela sympatická dívka s chlapcem, drželi se za ruce. V rohu pod policí knih posedávala postarší žena -- myslí, že jí mohlo být tak sedmdesát -- začtená do jednoho z výtisků. A nakonec světlovlasá baristka silnější postavy a tvářemi tak rudými, jako by to byla ona, kdo právě unikl náruči prosincové noci. Trochu mu připomínala učitelku ze školky. S nápojovým lístkem v rukou přistoupila ke němu, beze slova mu ho podala a zase se vrátila na své místo za pultem, kde se s nezaujatým výrazem věnovala svému mobilu. Bylo mu jasné, že se nemůže dočkat, až jí skončí směna.
+\newline
+\end{quoting}
+\end{otherlanguage*}
+
+As can be observed, the text was converted to the subjective third-person narrative with the narrator's omniscience limited to Matyáš's knowledge.
+
+Notice the text quality errors mentioned above: unnatural word order in sentence \emph{Rozhlédl Matyáš se po kavárně}, or incorrect use of a vocalized preposition in a clause \emph{přistoupila ke němu}. Also, it might be ambiguous who the verb \emph{myslí} in \emph{myslí, že jí mohlo být tak sedmdesát} refers to.

@@ -5,7 +5,7 @@ In this chapter, I describe the implementation of the tool \emph{RephrasErIch} w
 
 \subsection{SET}
 
-As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reason why I chose this analyzer is my previous experience with using this tool and its ability to produce dependency trees.
+As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reasons why I chose this analyzer is my previous experience with using this tool, its ability to produce dependency trees and it is part of the pipeline used -- Aara depends on it (see \ref{sec:aara}) and SET depends on Desamb (see \ref{sec:desamb}).
 
 SET is implemented in the Python programming language. Although RephrasErIch is also written in this programming language, it would be challenging to integrate the tools since SET is implemented in the old Python version, Python 2. For this reason, the tools communicate with each other through the command line. The communication is handled by a class \texttt{Syn}.
 TODO
@@ -23,13 +23,13 @@ RephrasErIch uses Majka directly, mainly for the third use case. Majka is writte
 
 \subsection{Desamb}
 
-\emph{Desamb} is a morphological disambiguator using Majka as a morphological tagger. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word context, which is essential for correct tagging. TODO
+\emph{Desamb} is a morphological disambiguator using Majka as a morphological analyzer. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word context, which is essential for correct tagging.
 
 In my implementation, I use Desamb to generate an input for syntactic analysis.
 
 \subsection{Aara}
 
-The last task that I use external tools for is \emph{anaphora resolution}. Anaphora resolution is a problem of resolving what a pronoun refers to sentence part mentioned earlier in the discourse. For instance, the resolution of a sentence: \emph{Jacob saw his dad in the school} would tell us that \emph{his} refers to \emph{Jacob}.
+The last task that I use external tools for is \emph{anaphora resolution}. Anaphora resolution is a problem of resolving what a pronoun refers to sentence part mentioned earlier in the discourse. For instance, the resolution of a sentence: \emph{Jacob saw his dad in the school} would inform that \emph{his} refers to \emph{Jacob}.
 %% to do: cite
 
 There are few tools for Czech anaphora resolution, and the existing ones do not perform very well. Still, anaphora resolution is required for third-to-first conversion. Thus I decided to use a tool \emph{Aara}. Usage of Aara is provided by a class \texttt{Anaph}, which is run from a command line for the same reasons as SET.
@@ -97,7 +97,7 @@ Currently, RephrasErIch use is limited by several factors:
 
 \begin{itemize}
 	\item RephrasErIch works only on Unix due to the command line execution of some programs.
-	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the center's other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
+	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the center other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
 \end{itemize}
 
 I illustrate the usage of the tool in the following code, which should be placed in the \texttt{main.py} file.
