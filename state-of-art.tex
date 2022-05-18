@@ -1,4 +1,4 @@
-So far, the task of the narrative mode conversion is largely unexplored. There are many open problems in the area of \emph{natural language processing} (NLP), and text rephrasing, in general, is one of them. Besides, there is a specific challenge to face in NLP: several solutions to any NLP task are language-specific. Naturally, most of the research which can be found on any topic is performed on English. Processing of the English language has several advantages: it has far fewer word forms and there is much more of the available textual data in English. These factors make the data more representative, In contrast, Czech morphology is more complex, and due to the number of speakers, there are not many researchers dealing with the NLP  of the Czech language. Since I have chosen to work with Czech texts in this thesis, I have to face this specific challenge as well.
+So far, the task of the narrative mode conversion is largely unexplored. There are many open problems in the area of \emph{natural language processing} (NLP), and text rephrasing, in general, is one of them. Besides, there is a specific challenge to face in NLP: several solutions to any NLP task are language-specific. Naturally, most of the research which can be found on any topic is performed on English. Processing of the English language has several advantages: it has far fewer word forms, and there is much more of the available textual data in English. These factors make the data more representative, In contrast, Czech morphology is more complex, and due to the number of speakers, there are not many researchers dealing with the NLP  of the Czech language. Since I have chosen to work with Czech texts in this thesis, I have to face this specific challenge as well.
 
 This leads me to the fact that there is no existing solution to this task for Czech. However, there are tools that solve at least some parts of the problem, or similar problems, such as text paraphrasing.
 
@@ -14,7 +14,7 @@ The system designed by Lee et al. \cite{lee2020converting} focused on spoken mes
 
 Besides the rule-based model, several deep learning based models have been developed. These models were trained on data collection provided by Amazon Mechanical Turk workers. According to the evaluation results, the deep learning based models have better performance.
 
-Recently, another effort has been published by Granero Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike my work and the work of Lee et al. they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, which served as a baseline here, as well.
+Recently, another effort has been published by Granero Moya and Oikonomu Filandras \cite{granero-moya-oikonomou-filandras-2021-taking}. Their research also focuses on virtual assistant technologies. Unlike my work and the work of Lee et al., they focus on conversion in only one direction: third-person to first-person. They also worked with the two approaches and developed a rule-based model and a deep learning system. Their deep learning models show better results than the rule-based model, which served as a baseline here, as well.
 
 \section{Tools for Czech}
 
@@ -22,9 +22,9 @@ In the introduction to this chapter, I explained that there is currently no solu
 
 \subsection{Paraphrase generation}
 
-Paraphrasing is a process of rewording a sentence while conveying the meaning. There are a number of ways to generate paraphrases; Bhagat and Hovy \cite{bhagat-hovy-2013-squibs} list changing the person as one of them.
+Paraphrasing is the process of rewording a sentence while conveying the meaning. There are several ways to generate paraphrases; Bhagat and Hovy \cite{bhagat-hovy-2013-squibs} list changing the person as one of them.
 
-The problem of paraphrasing in the general sense has already been solved for Czech. As an example I mention the work of Rudolf Rosa and the paraphrase generation system by Zuzana Nevěřilová. \cite{Neverilova2014thesis}
+The problem of paraphrasing in the general sense has already been solved for Czech. As an example, I mention the work of Rudolf Rosa and the paraphrase generation system by Zuzana Nevěřilová. \cite{Neverilova2014thesis}
 
 \subsection{Morphological analyzers}
 
@@ -55,15 +55,15 @@ Morphological disambiguation, also called tagging, reduces the output of morphol
 \subsection{Syntactic analyzers}
 \label{sec:synt-an}
 
-In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion: syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceeded by morphological analysis. In this section, I examine some existing syntactic analyzers for Czech.
+In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion: syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceded by morphological analysis. In this section, I examine some existing syntactic analyzers for Czech.
 
 \paragraph{SYNT} is a syntactic analyzer developed at the NLP Centre at Masaryk University. The tool is based on Czech meta-grammar, and it was designed for morphologically-rich languages.
 
 \paragraph{SET} (Syntactic Engineering Tool), also developed at the NLP Centre, is implementing a new approach to the syntactic analysis of Czech. This new approach is based on pattern recognition. \cite{set}
 
-\paragraph{UDPipe} is a pipeline from Charles University, which performs tagging, lemmatization and syntactic analysis utilizing neural networks. \cite{straka-2018-udpipe}
+\paragraph{UDPipe} is a pipeline from Charles University which performs tagging, lemmatization, and syntactic analysis utilizing neural networks. \cite{straka-2018-udpipe}
 
 \subsection*{Note on the tools listed}
 
-A text analysis is usually proceeded in order from the lowest levels of language exploration to the higher ones. Therefore, the tools mentioned above are often plugged into pipelines one after the other.
+Text analysis is usually proceeded in order from the lowest levels of language exploration to the higher ones. Therefore, the tools mentioned above are often plugged into pipelines one after the other.
 

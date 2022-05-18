@@ -4,7 +4,7 @@ In this chapter, I describe the implementation of the tool \emph{RephrasErIch} w
 
 \subsection{SET}
 
-As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reasons why I chose this analyzer is my previous experience with using this tool, its ability to produce dependency trees and it is part of the pipeline used -- Aara depends on it (see \ref{sec:aara}) and SET depends on Desamb (see \ref{sec:desamb}).
+As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reasons why I chose this analyzer are my previous experience with using this tool, its ability to produce dependency trees, and it is part of the pipeline used -- Aara depends on it (see \ref{sec:aara}) and SET depends on Desamb (see \ref{sec:desamb}).
 
 SET is implemented in the Python programming language. Although RephrasErIch is also written in this programming language, it would be challenging to integrate the tools since SET is implemented in the old Python version, Python 2. For this reason, the tools communicate with each other through the command line. The communication is handled by a class \texttt{Syn}.
 
@@ -95,7 +95,7 @@ Currently, RephrasErIch use is limited by several factors:
 
 \begin{itemize}
 	\item RephrasErIch works only on Unix due to the command line execution of some programs.
-	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the center other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
+	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the centre other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
 \end{itemize}
 
 I illustrate the usage of the tool in the following code, which is placed in the \texttt{main.py} file.
