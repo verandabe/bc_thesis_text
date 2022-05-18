@@ -4,7 +4,7 @@ This leads me to the fact that there is no existing solution to this task for Cz
 
 Generalizing the problem to any language, only few papers on this topic are found, as expected, all for English.
 
-In this chapter, at first, I introduce the existing solutions for the English language, and then I examine the situation in the Czech processing. TODO
+In this chapter, at first, I introduce the existing solutions for the English language, and then I examine the situation in the Czech processing.
 
 \section{Existing Solutions for English}
 
@@ -19,6 +19,12 @@ Recently, another effort has been published by Granero Moya and Oikonomu Filandr
 \section{Tools for Czech}
 
 In the introduction to this chapter, I explained that there is currently no solution to this problem for Czech. Nevertheless, I will briefly introduce a few tools that address more general problems.
+
+\subsection{Paraphrase generation}
+
+Paraphrasing is a process of rewording a sentence while conveying the meaning. There are a number of ways to generate paraphrases; Bhagat and Hovy \cite{bhagat-hovy-2013-squibs} list changing the person as one of them.
+
+The problem of paraphrasing in the general sense has already been solved for Czech. As an example I mention the work of Rudolf Rosa and the paraphrase generation system by Zuzana Nevěřilová. \cite{Neverilova2014thesis}
 
 \subsection{Morphological analyzers}
 
@@ -49,7 +55,7 @@ Morphological disambiguation, also called tagging, reduces the output of morphol
 \subsection{Syntactic analyzers}
 \label{sec:synt-an}
 
-In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion: syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceeded by morphological analysis. Let's take a look at some existing syntactic analyzers for Czech.
+In addition to morphology, there is another linguistic level that we need to deal with in order to perform POV conversion: syntax. In order to rephrase a sentence, syntactic analysis is required. The syntactic analysis is preceeded by morphological analysis. In this section, I examine some existing syntactic analyzers for Czech.
 
 \paragraph{SYNT} is a syntactic analyzer developed at the NLP Centre at Masaryk University. The tool is based on Czech meta-grammar, and it was designed for morphologically-rich languages.
 
@@ -59,5 +65,5 @@ In addition to morphology, there is another linguistic level that we need to dea
 
 \subsection*{Note on the tools listed}
 
-When analysing a text, we usually proceed in order from the lowest levels of language exploration to the higher ones. Therefore, the tools mentioned above are often plugged into pipelines one after the other.
+A text analysis is usually proceeded in order from the lowest levels of language exploration to the higher ones. Therefore, the tools mentioned above are often plugged into pipelines one after the other.
 
