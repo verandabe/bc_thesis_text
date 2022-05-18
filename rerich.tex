@@ -19,13 +19,13 @@ SET is implemented in the Python programming language. Although RephrasErIch is 
 
 RephrasErIch uses Majka directly, mainly for the third use case. Majka is written in C language. Therefore my tool contains a class \texttt{morph} which calls Majka binary code from the command line and processes the output.
 
-\subsection{Desamb}
+\subsection{Desamb} \label{sec:desamb}
 
 \emph{Desamb} is a morphological disambiguator using Majka as a morphological analyzer. Majka finds the set of lemmas and tags to the given word, then Desamb chooses the most appropriate lemma and tag. Unlike Majka, results also depend on the word context, which is essential for correct tagging.
 
 In my implementation, I use Desamb to generate an input for syntactic analysis.
 
-\subsection{Aara}
+\subsection{Aara} \label{sec:aara}
 
 The last task that I use external tools for is \emph{anaphora resolution}. Anaphora resolution is a problem of resolving what a pronoun refers to sentence part mentioned earlier in the discourse. For instance, the resolution of a sentence: \emph{Jacob saw his dad in the school} would inform that \emph{his} refers to \emph{Jacob}.
 %% to do: cite
