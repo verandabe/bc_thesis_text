@@ -16,7 +16,7 @@ In total, the evaluation data consists of 36 different texts composed of 388 sen
 
 \section{Annotation Process}
 
-As mentioned in the previous section, human annotators evaluated the sentences manually. The annotators have got: the person the text is converted from, the name of the protagonist, the original text, and the rephrased text. After reading the texts, an annotator could mark one or more statements for each sentence as true.
+As mentioned in the previous section, human annotators evaluated the sentences manually. The annotators were given: the person the text is converted from, the name of the protagonist, the original text, and the rephrased text. After reading the texts, an annotator could mark one or more statements for each sentence as true.
 
 The possible statements to mark:
 
@@ -36,7 +36,7 @@ The evaluation non-binarity also offers a basic error analysis, which gives a ba
 
 Based on the marking, I retrieved the results statistics.
 
-As can be seen in figure \ref{fig:eval-total}, most of the sentences were converted correctly, which also includes not converting the sentence at all (about 66\%). Only 17\% of the 388 sentences were converted incorrectly, partially, or entirely. The remaining 17\% are sentences that were converted correctly. However, the conversion damaged the text's quality (naturalness of expression, unambiguity, or grammar).
+As can be seen in Figure \ref{fig:eval-total}, most of the sentences were converted correctly, which also includes not converting the sentence at all (about 66\%). Only 17\% of the 388 sentences were converted incorrectly, partially, or entirely. The remaining 17\% are sentences that were converted correctly. However, the conversion damaged the text's quality (naturalness of expression, unambiguity, or grammar).
 
 \begin{figure}[!ht]
 \includegraphics[width=\textwidth]{data/Eval-Total.pdf}
@@ -74,7 +74,7 @@ In Table \ref{tab:example-first}, I show examples of rephrased sentences with th
 
 
 \subsection{Third-person to First-person results}
-On the other hand, figure \ref{fig:eval-third-to-first} illustrates quite a different picture. The third-to-first conversion direction delivers poor performance results. Notice that the number of completely incorrect sentences is high (more than 25\%) even when considering the fact that 68 sentences were not affected by the conversion at all.
+On the other hand, Figure \ref{fig:eval-third-to-first} illustrates quite a different picture. The third-to-first conversion direction delivers poor performance results. Notice that the number of completely incorrect sentences is high (more than 25\%) even when considering the fact that 68 sentences were not affected by the conversion at all.
 The reasons for these poor results are further described in Section \ref{sec:errors}.
 
 \begin{figure}[!ht]
@@ -109,7 +109,7 @@ In this section, I provide an error analysis. I examine the causes of the errors
 
 As mentioned in the previous section, most conversion errors come from the third-to-first conversion. Since this direction is much more complicated than the other way, the poorer results are not surprising. In contrast to first-to-third, when converting a text from the third-person narrative, it is necessary to recognize the protagonist who should become the narrator and change all the words whose form depends on this protagonist. This task should be handled by anaphora resolution. Nevertheless, the performance of Aara is poor. Thus, it affects RephrasErIch. The considerable difference between first-to-third and third-to-first results confirms this issue since anaphora resolution is not used in the first-to-third conversion.
 
-A solution to this error is beyond the limits of the tool. Aara would have to be improved or replaced by better performing tool.
+A solution to this error is beyond the limits of the implemented tool. Aara would have to be improved or completely replaced by better performing tool.
 
 \subsection{Text Quality Errors}
 

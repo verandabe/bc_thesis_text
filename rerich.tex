@@ -48,7 +48,7 @@ The tool is implemented as a Python library. The library consists of six importa
 	\item \texttt{text} -- a given text, an instance of a class \texttt{Text}
 \end{itemize}
 
-The essential method is a method \texttt{rephrase} which creates an object representation of the given text and starts the narrative conversion.
+The essential method is a method \texttt{rephrase()} which creates an object representation of the given text and starts the narrative conversion.
 
 \subsection{Text}
 
@@ -58,7 +58,7 @@ Class \texttt{Text} is an object representation of text data to be converted. Wh
 
 Just as text is divided into paragraphs, a paragraph is divided into sentences. Besides the division, the class \texttt{Paragraph} is responsible for direct speech preprocessing and anaphora resolution.
 
-After the direct speech has been processed and the anaphors resolved, the \texttt{create\_sentences} method is called. This method segments the paragraph and creates a list of \texttt{Sentence} objects.
+After the direct speech has been processed and the anaphors resolved, the \texttt{create\_sentences()} method is called. This method segments the paragraph and creates a list of \texttt{Sentence} objects.
 
 \subsection{Sentence}
 
@@ -100,14 +100,14 @@ Currently, RephrasErIch use is limited by several factors:
 	\item The use of the tool assumes running on the NLP Centre of the Faculty of Informatics machines, which have access to the center other projects. \footnote{More information can be found at \href{https://nlp.fi.muni.cz}{nlp.fi.muni.cz}} Otherwise, it would be necessary to install the external tools mentioned in Section \ref{sec:external-tools}.
 \end{itemize}
 
-I illustrate the usage of the tool in the following code, which should be placed in the \texttt{main.py} file.
+I illustrate the usage of the tool in the following code, which is placed in the \texttt{main.py} file.
 \newline
 
 \begin{lstlisting}[language=Python]
 import sys
 
 sys.path.append('./enums/')  # enumeration classes, such as Forms
-sys.path.append('./classes/')  # the six classes mentioned in section 6.2
+sys.path.append('./classes/')  # the six classes mentioned in Section 6.2
 sys.path.append('./tools/')  # classes handling communication with external tools
 
 from RephrasErIch import RephrasErIch
@@ -128,7 +128,7 @@ As can be seen, five main steps are needed to convert a text:
 	\item Import the classes being used.
 	\item Initialize an object (\texttt{rerich}) as an instance of the class \texttt{RephrasErIch} with declared original narrative form of the text.
 	\item Create an instance of the class \texttt{Protagonist}.
-	\item Call the method \texttt{rephrase(text: str)} on \texttt{rerich} with the text to rephrase as an argument.
+	\item Call the method \texttt{rephrase(text: str)} on \texttt{rerich} with the text to rephrase as an argument and a rephrased text as a return value.
 \end{enumerate}
 
 When the content of the variable after the program has finished is printed, the output might be the following:
