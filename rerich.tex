@@ -1,4 +1,3 @@
-%% s využitím syntaktického analyzátoru SET vytvořte program, který bude převádět texty mezi oběma formami. Zohledněte gramaticko-syntaktické jevy spojené s každou z vyprávěcích forem (osoba slovesných tvarů, osobní a přivlastňovací zájmena, spojky kdyby a aby, přímá řeč, rezoluce anafor).
 In this chapter, I describe the implementation of the tool \emph{RephrasErIch} which converts a given text between first-person and third-person narratives, and I present other tools that I used in the implementation.
 
 \section{Tools used} \label{sec:external-tools}
@@ -8,7 +7,6 @@ In this chapter, I describe the implementation of the tool \emph{RephrasErIch} w
 As mentioned before, syntactic analysis is needed for narrative conversion. From the existing Czech syntactic analyzers, I decided to use analyzer \emph{SET}. The main reasons why I chose this analyzer is my previous experience with using this tool, its ability to produce dependency trees and it is part of the pipeline used -- Aara depends on it (see \ref{sec:aara}) and SET depends on Desamb (see \ref{sec:desamb}).
 
 SET is implemented in the Python programming language. Although RephrasErIch is also written in this programming language, it would be challenging to integrate the tools since SET is implemented in the old Python version, Python 2. For this reason, the tools communicate with each other through the command line. The communication is handled by a class \texttt{Syn}.
-TODO
 
 \subsection{Majka}
 
